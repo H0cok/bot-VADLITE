@@ -9,6 +9,10 @@ bot = telebot.TeleBot('986672145:AAG5Mud3OyeNV21CppdHikwZkWRmSUI4mN4')
 def start(message):
     bot.send_message(message.chat.id, 'йоу')
 
+@bot.message_handler(commands=['starts'])
+def start(message):
+    bot.send_message(message.chat.id, 'Привет. Я бот, который сделает вид, что ты кому-то нужен и'
+                                      ' отправит тебе твое же сообщение, чтобы ты мог вставить его в мем')
 
 @bot.message_handler(commands=['help'])
 def help(message):
@@ -2625,8 +2629,8 @@ def answer(message):
         bot.send_message(message.chat.id, 'йоу')
     elif message.text.lower() == 'yo':
         bot.send_message(message.chat.id, 'йоу')
-    if message.text.lower() == 'хрю':
-        bot.send_message(message.chat.id, '🐷')
+    else :
+        bot.send_message(message.chat.id, message.text)
 
 
 bot.polling()
